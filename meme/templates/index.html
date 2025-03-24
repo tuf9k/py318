@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemeMaker | Создать мем</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/impact" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="reload-emoji" onclick="window.location.href='{{ url_for('index') }}'">🔄</div>
+    <div></div>
+    <span class="i zagol">MemeMaker</span>
+    <br>
+
+    <div class="photo">
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        <label for="imageUpload" class="custom-file-upload l">Выбрать файл</label>
+        <img id="uploadedImage" src="#" alt="Загруженное изображение">
+
+        <!-- Текст сверху картинки -->
+        <div id="textTop" class="text-overlay text-top"></div>
+        <!-- Текст снизу картинки -->
+        <div id="textBottom" class="text-overlay text-bottom"></div>
+    </div>
+
+    <!-- Изображения на выбор -->
+    <div class="image-options" id="imageOptions">
+        <img src="https://1gai.ru/uploads/posts/2025-01/1736418593_10.png" alt="Image 1" onclick="selectImage(this)">
+        <img src="https://twizz.ru/wp-content/uploads/2022/01/1641890832_2e54a4b0c71bb66725dcf30e4b6ff6c0.jpg" alt="Image 2" onclick="selectImage(this)">
+        <img src="https://main-cdn.sbermegamarket.ru/big1/hlr-system/602/360/518/914/742/100059945384b0.jpg" alt="Image 3" onclick="selectImage(this)">
+    </div>
+
+    <!-- Поля ввода текста -->
+    <div style="text-align: center;">
+        <input type="text" id="topTextInput" class="text-input" placeholder="Введите текст сверху">
+        <input type="text" id="bottomTextInput" class="text-input" placeholder="Введите текст снизу">
+    </div>
+
+    <!-- Радио-кнопки для выбора шрифта -->
+    <div class="font-selector">
+        <label>
+            <input type="radio" name="font" value="impact" checked> Impact
+        </label>
+        <label>
+            <input type="radio" name="font" value="lobster"> Lobster
+        </label>
+    </div>
+
+    <!-- Поле для выбора размера шрифта -->
+    <div class="font-size-selector">
+        <label for="fontSize">Размер шрифта:</label>
+        <input type="number" id="fontSize" min="10" max="100" value="60">
+    </div>
+
+    <!-- Сообщение о вставке изображения -->
+    <div id="pasteMessage">Изображение вставлено из буфера обмена!</div>
+
+    <!-- Canvas для отрисовки итоговой картинки -->
+    <canvas id="memeCanvas" style="display: none;"></canvas>
+
+    <!-- Кнопка для скачивания итоговой картинки -->
+    <button id="downloadButton">Скачать мем</button>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

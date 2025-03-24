@@ -1,0 +1,195 @@
+body {
+    background-color: #666666;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.i {
+    font-family: 'Impact', sans-serif;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.6px #000000;
+}
+
+.l {
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(255, 255, 255);
+}
+
+.zagol {
+    font-size: 60px;
+    text-align: center;
+    background-color: #3b3b3b;
+    padding: 20px 0;
+    -webkit-text-stroke: 1px #000000;
+}
+
+#uploadedImage {
+    min-width: 40%;
+    max-width: 70%;
+    height: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: none;
+}
+
+.custom-file-upload {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #333333;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #f0f0f0;
+    border-color: #999999;
+}
+
+.custom-file-upload:active {
+    background-color: #e0e0e0;
+}
+
+.reload-emoji {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    font-size: 35px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.reload-emoji:hover {
+    transform: scale(1.2);
+}
+
+/* Стили для текста на картинке */
+.text-overlay {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-family: 'Impact', sans-serif;
+    color: white;
+    -webkit-text-stroke: 1.5px black;
+    font-size: 60px;
+    pointer-events: none;
+}
+
+.text-top {
+    top: 10px;
+}
+
+.text-bottom {
+    bottom: 10px;
+}
+
+/* Стили для полей ввода текста */
+.text-input {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    display: none;
+}
+
+/* Стили для радио-кнопок */
+.font-selector {
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
+
+.font-selector label {
+    margin-right: 15px;
+    font-size: 16px;
+    color: white;
+}
+
+/* Стили для выбора размера шрифта */
+.font-size-selector {
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
+
+.font-size-selector input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100px;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+}
+
+/* Стили для изображений на выбор */
+.image-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.image-options img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.image-options img:hover {
+    transform: scale(1.1);
+}
+
+/* Стили для всплывающего уведомления */
+#pasteMessage {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(76, 175, 80, 0.9);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInOut 3s ease-in-out;
+}
+
+/* Анимация для плавного появления и исчезновения */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Стили для кнопки скачивания */
+#downloadButton {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
